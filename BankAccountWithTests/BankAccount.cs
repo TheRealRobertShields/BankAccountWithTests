@@ -10,9 +10,14 @@ namespace BankAccountWithTests
     {
         private string accountNumber;
 
-        public BankAccount(string accNum)
+        public BankAccount(string accNum) : this(accNum, 0.00)
+        {
+        }
+
+        public BankAccount(string accNum, double initialBal)
         {
             AccountNumber = accNum;
+            Balance = initialBal;
         }
 
         public string AccountNumber 
@@ -41,6 +46,11 @@ namespace BankAccountWithTests
             }
             Balance += amt;
             return Balance;
+        }
+
+        public void Withdraw(double amt)
+        {
+            Balance -= amt;
         }
     }
 }
